@@ -190,3 +190,79 @@ class Solution{
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MINIMIZE THE HEIGHTS II
+
+https://practice.geeksforgeeks.org/problems/minimize-the-heights3351/1
+
+class Solution {
+    int getMinDiff(int[] arr, int n, int k) {
+        if(n==1)return 0;
+        
+        Arrays.sort(arr);
+        
+        int diff=arr[n-1]-arr[0];
+        int min,max;
+        for(int i=1;i<n;i++){
+            if(arr[i]-k<0)
+            continue;
+            
+            max=Math.max(arr[i-1]+k,arr[n-1]-k);
+            min=Math.min(arr[0]+k,arr[i]-k);
+            diff=Math.min(diff,max-min);
+        }
+        return diff;
+    }
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+MINIMUM NUMBER OF JUMPS
+
+https://practice.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1
+
+class Solution{
+    static int minJumps(int[] arr){
+        // your code here
+        int currReach=0,currmax=0,jump=0;
+        int n=arr.length;
+        for(int i=0;i<n-1;i++){
+            if(i+arr[i]>currmax)
+                currmax=arr[i]+i;
+                if(i==currReach){
+                    jump++;
+                    currReach=currmax;
+        }
+            if(arr[i]==0 && i==currmax)return -1;
+        }
+        return jump;
+    }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FIND THE DUPLICATE NUMBER
+
+https://leetcode.com/problems/find-the-duplicate-number/
+
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+    HashSet<Integer>hs=new HashSet<>();
+    for(int x:nums){
+        if(hs.contains(x)){
+            return x;
+        }else{
+            hs.add(x);
+        }
+    }
+    return -1;
+}
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
