@@ -11,7 +11,7 @@ https://practice.geeksforgeeks.org/problems/reverse-a-string/1?utm_source=geeksf
 class Reverse
 {
     // Complete the function
-    // str: input string
+    // str: input  string
     public static String reverseWord(String str)
     {
         String ans="";
